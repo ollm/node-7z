@@ -1,6 +1,6 @@
 {
   "name": "node-7z",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Node.js wrapper for 7-Zip with platform binaries",
   "main": "./src/main.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "debug": "^4.3.2",
+    "debug": "^4.4.0",
     "lodash.defaultsdeep": "^4.6.1",
     "lodash.defaultto": "^4.14.0",
     "lodash.flattendeep": "^4.4.0",
@@ -44,7 +44,6 @@
     "lodash.negate": "^3.0.2",
     "normalize-path": "^3.0.0"
   },
-  "optionalDependencies": {},
   "devDependencies": {
     "chai": "^4.3.4",
     "esm": "^3.2.25",
