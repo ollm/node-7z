@@ -30,7 +30,7 @@ const listenFactory = ({ Lifecycle, Err, Lines, Maybe }) => seven => {
     errorHandler: Events.onErrorFactory({ Err }),
     stderrHandler: Events.onStderrFactory({ Err }),
     stdoutHandler: Events.onStdoutFactory({ Lines, Maybe }),
-    endHandler: Events.onEndFactory()
+    endHandler: Events.onEndFactory({ Err })
   })(seven)
   return seven
 }

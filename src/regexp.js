@@ -21,7 +21,7 @@ const END_OF_TECH_INFOS_HEADERS = new RegExp('^----------$')
 const INFOS = new RegExp('^(?<property>.+?)(?<separator>( = )|(: +))(?<value>.+)$')
 const INFOS_PATH = new RegExp('^Path = (?<path>.+)$')
 const INFOS_SPLIT = new RegExp(', +# ')
-const ERROR = new RegExp('(?<level>WARNING|ERROR): (?<message>.*)(\r\n)?(\n)?', 'i')
+const ERROR = new RegExp('(?<level>WARNINGS?|ERRORS?): (?<message>.*)(\r\n)?(\n)?', 'ig')
 
 module.exports = {
   LINE_SPLIT,

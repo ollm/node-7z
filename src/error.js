@@ -24,9 +24,25 @@ const assign = (stream, err) => {
   return stream
 }
 
+// Just append the buffer to the stream. The error is created before emitting on close
+const append = (stream, buffer) => {
+  if (stream.stderr) {
+    stream.stderr += buffer
+  } else {
+    stream.stderr = buffer
+  }
+  return stream
+}
+
 const fromBuffer = chunk => {
-  const stderr = chunk.toString()
-  const match = stderr.match(ERROR)
+
+  // Join WARNINGS|ERRORS in a single line
+  const stderr = chunk.toString().replace(/(WARNINGS|ERRORS):\s*\n((?:[^\n]+\n)+)/gm, (match, level, message) => {
+    message = message.trim().replace(/\n/g, ' : ');
+    return `${level}: ${message}\n`;
+  });
+
+  const match = [...stderr.matchAll(ERROR)].pop(); // Get last error message
   const err = new Error('unknown error')
   err.stderr = stderr
   if (match) {
@@ -36,4 +52,4 @@ const fromBuffer = chunk => {
   return err
 }
 
-module.exports = { assign, fromBuffer }
+module.exports = { assign, append, fromBuffer }
