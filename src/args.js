@@ -19,8 +19,17 @@ const { COMMAND_LETTERS } = require('./references')
 
 // Transform user input into a args for child procress spawn
 const fromOptions = options => {
-  return [COMMAND_LETTERS[options._command]]
-    .concat(flattenDeep(options._target))
+  const target = flattenDeep(options._target)
+  const archive = target[0]
+  const files = target.slice(1).filter(negate(isEmpty))
+
+  // Add '--' separator between archive and filenames to prevent filenames
+  // starting with '-' from being interpreted as 7z flags
+  if (files.length > 0) {
+    return [COMMAND_LETTERS[options._command], archive, '--'].concat(files)
+      .filter(negate(isEmpty))
+  }
+  return [COMMAND_LETTERS[options._command], archive]
     .filter(negate(isEmpty))
 }
 
