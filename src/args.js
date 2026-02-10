@@ -19,9 +19,12 @@ const { COMMAND_LETTERS } = require('./references')
 
 // Transform user input into a args for child procress spawn
 const fromOptions = options => {
-  return [COMMAND_LETTERS[options._command]]
-    .concat(flattenDeep(options._target))
-    .filter(negate(isEmpty))
+  const hasEndOfOptions = ['extract', 'extractFull'].includes(options._command)
+  const args = [COMMAND_LETTERS[options._command]]
+  if (hasEndOfOptions) {
+    args.push('--')
+  }
+  return args.concat(flattenDeep(options._target)).filter(negate(isEmpty))
 }
 
 module.exports = { fromOptions }

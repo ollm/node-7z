@@ -38,8 +38,8 @@ const createFactory = ({
 
   seven._bin = Bin.fromOptions(options)
   seven._args = []
-    .concat(Args.fromOptions(options))
     .concat(Flags.fromOptions(options))
+    .concat(Args.fromOptions(options))
   seven._isProgressFlag = seven._args.includes('-bsp1')
   seven._stage = STAGE_HEADERS
   seven._matchBodyData = Parser.fetch(options._command, 'bodyData')

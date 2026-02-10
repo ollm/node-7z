@@ -9,6 +9,13 @@
 [![Code Maintainability][maintainability-image]][maintainability-url]
 [![Known Vulnerabilities][vulnerabilities-image]][vulnerabilities-url]
 
+## Note
+
+This is a fork of [q2s2t/node-7z](https://github.com/q2s2t/node-7z) with some bug fixes and changes.
+
+- fix: improve error handling (Based in @velkan14 changes) [a95fdbc](https://github.com/ollm/node-7z/commit/a95fdbcaea85c14c5c89621aadf03f069814af22)
+- fix: extract files when the file in it starts with the '-' character
+
 ## Usage
 
 ```js
@@ -50,6 +57,10 @@ myStream.on('error', (err) => handleError(err))
 ## Installation
 
 ```sh
+# This fork
+npm install --save github:ollm/node-7z
+
+# Original
 npm install --save node-7z
 ```
 

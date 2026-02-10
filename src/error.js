@@ -35,14 +35,13 @@ const append = (stream, buffer) => {
 }
 
 const fromBuffer = chunk => {
-
   // Join WARNINGS|ERRORS in a single line
   const stderr = chunk.toString().replace(/(WARNINGS|ERRORS):\s*\n((?:[^\n]+\n)+)/gm, (match, level, message) => {
-    message = message.trim().replace(/\n/g, ' : ');
-    return `${level}: ${message}\n`;
-  });
+    message = message.trim().replace(/\n/g, ' : ')
+    return `${level}: ${message}\n`
+  })
 
-  const match = [...stderr.matchAll(ERROR)].pop(); // Get last error message
+  const match = [...stderr.matchAll(ERROR)].pop() // Get last error message
   const err = new Error('unknown error')
   err.stderr = stderr
   if (match) {
