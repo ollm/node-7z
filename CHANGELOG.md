@@ -1,7 +1,7 @@
 ## 3.0.2 (2021-07-11)
 
 * fix: improve error handling (Based in @velkan14 changes) [a95fdbc](https://github.com/ollm/node-7z/commit/a95fdbcaea85c14c5c89621aadf03f069814af22)
-* fix: extract files when the file in it starts with the '-' character
+* fix: extract files when the file in it starts with the '-' character [4386814](https://github.com/ollm/node-7z/commit/43868148da37dd4280a36f378b59493752527d04)
 
 ## 3.0.0 (2021-07-11)
 

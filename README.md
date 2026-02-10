@@ -13,8 +13,8 @@
 
 This is a fork of [q2s2t/node-7z](https://github.com/q2s2t/node-7z) with some bug fixes and changes.
 
-- fix: improve error handling (Based in @velkan14 changes) [a95fdbc](https://github.com/ollm/node-7z/commit/a95fdbcaea85c14c5c89621aadf03f069814af22)
-- fix: extract files when the file in it starts with the '-' character
+* fix: improve error handling (Based in @velkan14 changes) [a95fdbc](https://github.com/ollm/node-7z/commit/a95fdbcaea85c14c5c89621aadf03f069814af22)
+* fix: extract files when the file in it starts with the '-' character [4386814](https://github.com/ollm/node-7z/commit/43868148da37dd4280a36f378b59493752527d04)
 
 ## Usage
 
